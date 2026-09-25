@@ -1,0 +1,17 @@
+# Environment
+myenv/
+venv/
+__pycache__/
+*.pyc
+
+# Data
+data/raw/
+data/binary/
+data/multiclass/
+
+# Kaggle credentials
+kaggle.json
+
+# OS/editor
+.vscode/
+.DS_Store
