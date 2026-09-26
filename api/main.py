@@ -18,6 +18,8 @@ from fastapi import FastAPI, UploadFile, File, HTTPException
 from PIL import Image
 import io
 import numpy as np
+from fastapi.middleware.cors import CORSMiddleware
+
 
 from predict import (
     _load_binary_model,
@@ -31,6 +33,13 @@ app = FastAPI(
     title="Solar Panel Defect Classifier",
     description="Two-stage image classification: clean/defective, then defect type",
     version="1.0.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 ALLOWED_CONTENT_TYPES = {"image/jpeg", "image/png", "image/jpg"}
