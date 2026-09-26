@@ -56,10 +56,16 @@ def _preprocess_uploaded_image(file_bytes: bytes) -> np.ndarray:
     return img_array
 
 
+# @app.get("/")
+# def root():
+#     return {"status": "ok", "message": "Solar Panel Defect Classifier API"}
 @app.get("/")
-def root():
-    return {"status": "ok", "message": "Solar Panel Defect Classifier API"}
-
+def read_root():
+    return {
+        "project": "Solar Panel Defect Classifier API",
+        "status": "Active",
+        "documentation": "Please go to /docs to test the live model interface."
+    }
 
 @app.post("/predict", response_model=PredictionResponse)
 async def predict_endpoint(
